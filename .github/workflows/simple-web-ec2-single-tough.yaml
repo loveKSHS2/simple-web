@@ -20,7 +20,7 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.AWS_KEY }}
       - name: 파일 목록 보기
-        #서버의 키가 정말 유효한지
+        #서버의 키가 정말 유효한지!
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.AWS_USER }}@${{ secrets.AWS_HOST }} "ls -al /home/${{secrets.AWS_USER}}"
       - name: 파일 서버로 복사
