@@ -17,11 +17,9 @@ jobs:
           aws-region-: ap-northeast-2
       - name: SSH키 설정
         uses: webfactory/ssh-agent@v0.5.3
-        with 
+        with:
           ssh-private-key: ${{ secrets.AWS_KEY }}
       - name: 파일 목록 보기
         #서버의 키가 정말 유효한지
         run: |
-          ssh -o StrictHostKeyChecking=no \
-          ${{ secrets.AWS_USER }}@${{ secrets.AWS_HOST }} \
-          "ls -al /home/${{secrets.AWS_USER}}"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.AWS_USER }}@${{ secrets.AWS_HOST }} "ls -al /home/${{secrets.AWS_USER}}"
